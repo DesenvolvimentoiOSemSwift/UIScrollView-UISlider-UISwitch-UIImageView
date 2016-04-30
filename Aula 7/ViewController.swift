@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var tableViewcell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let tableViewcell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         
         tableViewcell.textLabel?.text = imagesArray[indexPath.row].name
@@ -39,9 +39,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var dtVC = segue.destinationViewController as DetailViewController
+        let dtVC = segue.destinationViewController as! DetailViewController
         
-        let idxPath = tableView.indexPathForCell(sender as UITableViewCell) as NSIndexPath?
+        let idxPath = tableView.indexPathForCell(sender as! UITableViewCell) as NSIndexPath?
         
         dtVC.imgSelected = imagesArray[idxPath!.row].image
         

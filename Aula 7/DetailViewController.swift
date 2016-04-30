@@ -37,7 +37,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView!
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
     {
         return imageView
     }
@@ -46,7 +46,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         scrollView.zoomScale = CGFloat(slider.value)
     }
 
-    func scrollViewDidZoom(scrollView: UIScrollView!)
+    func scrollViewDidZoom(scrollView: UIScrollView)
     {
         slider.setValue(Float(scrollView.zoomScale), animated: true)
     }
@@ -54,7 +54,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func turnOnOff(sender: AnyObject) {
         slider.enabled = onOffZoom.on
         
-        scrollView.pinchGestureRecognizer.enabled = onOffZoom.on
+        scrollView.pinchGestureRecognizer!.enabled = onOffZoom.on
     }
     
 
